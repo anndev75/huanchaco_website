@@ -1,7 +1,7 @@
 function fullscreen_header(){
     return (
         <div>
-            Hello
+            full_screen
         </div>
     )
 }

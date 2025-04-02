@@ -3,7 +3,7 @@ import './content.css'
 function content(){
     return (
         <div className='content'>
-            contenido...
+            [contenido]
         </div>
     )
 
