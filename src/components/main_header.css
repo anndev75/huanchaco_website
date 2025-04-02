@@ -1,0 +1,107 @@
+:root{
+    --color1: #092B73;
+    --color2: #1252A0;
+    --color3: #F3BA01;
+    --color4: #FEFEFE;
+
+}
+.navHeader{
+    display: flex;
+    background-image: linear-gradient(to Bottom, var(--color1), var(--color2));
+    justify-content: space-between;
+    font-family: 'Mercury Text G2 Semibold Regular', 'sans-serif';
+    height: 50px;
+    padding: 0 20px;
+    .title:link, .title:visited, .title:active{
+        color: white;
+    }
+    
+}
+.navHeader > .title{
+    display: flex;
+    align-self: center;
+    margin: 5px;
+    text-decoration: none;
+    .image{
+        height: 35px;
+    }
+    .text{
+        display: flex;
+        align-items: center;
+        margin-left: 7px;
+        font-size: 18px;
+    }
+}
+
+
+
+
+
+/*BOTONES*/
+
+.buttons{
+    display: flex;
+    justify-content: end;
+    align-self: center;
+    list-style: none;
+    flex: 1;
+    margin: auto 20px;
+    gap: 25px;
+    button{
+        color: white;
+        font-size: 17px;
+        text-decoration: underline;
+        font-family: 'Mercury Text G2 Semibold Regular', 'sans-serif';
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover{
+        text-shadow: white 0px 0px 18px
+    }
+}
+
+.dropdown {
+    position: relative;
+}
+.dropdown button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: var(--color1);
+    border-radius: 5px;
+    padding: 10px 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dropdown-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background: var(--color2);
+}
+
+/* Muestra el menú cuando está activo */
+.dropdown:hover .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+}
