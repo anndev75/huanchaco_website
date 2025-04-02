@@ -1,0 +1,54 @@
+#MainHeader {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    padding: 15px;
+    background-image: url(../assets/fondo_header.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.left,.right {
+  display: flex;
+  flex:1;
+  align-items: center;
+  font-style: italic;
+  justify-content: center;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+}
+
+.left {
+  margin-left: 15px;
+}
+
+.right {
+  margin-right: 15px;
+}
+
+
+.escudo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    border-radius: 50%;
+}
+
+.escudo>img {
+    height: 250px;
+    max-width: 100%;
+    margin: 15px;
+    border-radius: 50%;
+}
+
+.escudo>img:hover {
+    cursor: pointer;
+    background: black;
+    box-shadow: 0px 0px 20px black;
+    transition: 1.5s all ease;
+}
