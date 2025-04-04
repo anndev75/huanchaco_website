@@ -1,0 +1,113 @@
+:root{
+    --letra-color: #fff;
+    --color1: #082971;
+    --color2: #1354A2;
+    --tamaño-logo: 50px;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to Bottom, var(--color1), var(--color2));  
+}
+.maxWidth{
+    display: flex;
+    flex: 1;
+    max-width: 1400px;
+}
+.title{
+    color: black;
+    text-decoration: black;
+    flex: 1;
+    display: flex;
+    img{
+        margin-left: 20px;
+        width: var(--tamaño-logo);
+        height: var(--tamaño-logo);
+    }
+    p{
+        color: var(--letra-color);
+        font-size: 20px;
+        margin: auto 20px;
+    }
+}
+.title:hover{
+    filter: drop-shadow(1px 1px 7px black);
+    
+      
+}
+.nav{
+    display: flex;
+    padding: 0 40px;
+    gap:40px;
+    align-items: center;
+    .active{
+        text-shadow: 1px 1px 3px black;
+        font-weight: bold;
+        transition: ease-in 0.1s;
+    }
+    .active:hover{
+        
+        text-shadow: 0px 0px 20px black;
+    }
+    
+}
+.nav_button{
+    /* Estilo básico del botón */
+    display: none;
+    margin: auto 15px;
+    background-color: white;
+    border: solid 1px;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    
+}
+
+
+
+
+/* Efectos opcionales al hacer hover o click */
+.option{
+    background: none;
+    border: none;
+    text-decoration: underline;
+    color: var(--letra-color);
+    font-size: 15px;
+    width: 70px;
+    height: 50px;
+    
+}
+.option:hover{
+    text-shadow: 0px 0px 20px var(--letra-color);
+}
+
+.nav_sub_nav{
+    position: absolute;
+    background-color: var(--color1);
+    border-radius: 10px;
+    
+}
+.option2{
+    padding: 10pX 20px;
+    list-style: none;
+    color: var(--letra-color);
+}
+.option2:hover{
+    background-color: var(--color2);
+    border-radius: inherit;
+    transition: ease-in 0.05s;
+}
+
+
+/*RESPONSIVE*/
+@media (max-width: 800px) {
+    .nav_button{
+        display: block;
+    }
+    
+    /*terminar boton menú klk*/
+
+
+
+}
+  

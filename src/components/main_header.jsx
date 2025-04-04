@@ -1,59 +1,88 @@
 import { useState } from "react";
-import "./main_header.css";
-import image from "../assets/escudo_huanchaco.png";
+import style from "./main_header.module.css";
+import logo from '../assets/escudo_huanchaco.png';
 
-const link = "https://google.com";
+// Datos
+const noticias = ['Últimas Noticias', '2', '3'];
+const contacto = ['Correo', 'Whatsapp', 'Llamar'];
+const ver_mas = ['Acerca De', '2'];
 
-function MainHeader() {
-  const [openMenu, setOpenMenu] = useState(null);
-
-  const toggleMenu = (menu) => {
-    setOpenMenu(prevMenu => (prevMenu === menu ? null : menu));
-  };
-
-  return (
-    <div className="navHeader">
-      <a href={link} className="title">
-        <img src={image} alt="logo" className="image" />
-        <div className="text">Central de Monitoreo - Municipalidad de Huanchaco</div>
-      </a>
-      <div className="buttons">
-        {/* Botón Noticias */}
-        <div className="dropdown">
-          <button onClick={() => toggleMenu("noticias")}>Noticias</button>
-          {openMenu === "noticias" && (
-            <div className="dropdown-menu">
-              <a href="#">Últimas Noticias</a>
-              <a href="#">Eventos</a>
-              <a href="#">Comunicados</a>
-            </div>
-          )}
+// Componente reutilizable
+function Opcion({ items, text, isActive, onClick }) {
+    return (
+        <div className={style.draw_option}>
+            <button className={`${style.option} ${isActive && style.active}`} onClick={onClick}>
+                {text}
+            </button>
+            {isActive && (
+                <ul className={style.nav_sub_nav}>
+                    {items.map((item, index) => (
+                        <li key={index} className={style.option2}>
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
-
-        {/* Botón Contacto */}
-        <div className="dropdown">
-          <button onClick={() => toggleMenu("contacto")}>Contacto</button>
-          {openMenu === "contacto" && (
-            <div className="dropdown-menu">
-              <a href="#">Teléfono</a>
-              <a href="#">Whatsapp</a>
-              <a href="#">Agendar Cita</a>
-            </div>
-          )}
-        </div>
-
-        {/* Botón Asesoramiento */}
-        <div className="dropdown">
-          <button onClick={() => toggleMenu("asesoramiento")}>Acerca De</button>
-          {openMenu === "asesoramiento" && (
-            <div className="dropdown-menu">
-              
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
 
-export default MainHeader;
+// Componente de navegación
+function Nav() {
+    const [activeOption, setActiveOption] = useState(null);
+    const handleOptionClick = (option) => {
+        setActiveOption(activeOption === option ? null : option);
+    };
+    //use the same text in {text}, isActive &&, handleOptionClick().
+    return (
+        <nav className={style.nav}>
+            <Opcion
+                items={noticias}
+                text="Noticias"
+                isActive={activeOption === "Noticias"}
+                onClick={() => handleOptionClick("Noticias")}
+            />
+            <Opcion
+                items={contacto}
+                text="Contacto"
+                isActive={activeOption === "Contacto"}
+                onClick={() => handleOptionClick("Contacto")}
+            />
+            <Opcion
+                items={ver_mas}
+                text="Ver Más"
+                isActive={activeOption === "Ver Más"}
+                onClick={() => handleOptionClick("Ver Más")}
+            />
+        </nav>
+    );
+}
+
+
+// Componente del título
+function Title() {
+    return (
+        <a className={style.title} href="#">
+            <img src={logo} alt="logo" />
+            <p>Central de Monitoreo</p>
+        </a>
+    );
+}
+
+// Componente principal
+function Main() {
+    const [activeNav, setActiveNav] = useState(true);
+    return (
+        <div className={style.main}>
+            <div className={style.maxWidth}>
+                <Title />
+                {activeNav && <Nav />}
+                <button onClick={()=>{setActiveNav(!activeNav)}} className={style.nav_button}>
+                    ...
+                </button>
+            </div>
+        </div>
+    );
+}
+
+export default Main;
