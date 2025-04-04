@@ -2,18 +2,18 @@ import { useState } from "react";
 import "./main_header.css";
 import image from "../assets/escudo_huanchaco.png";
 
-const municipalidad_link = "https://google.com";
+const link = "https://google.com";
 
 function MainHeader() {
   const [openMenu, setOpenMenu] = useState(null);
 
   const toggleMenu = (menu) => {
-    setOpenMenu(openMenu === menu ? null : menu);
+    setOpenMenu(prevMenu => (prevMenu === menu ? null : menu));
   };
 
   return (
     <div className="navHeader">
-      <a href={municipalidad_link} className="title">
+      <a href={link} className="title">
         <img src={image} alt="logo" className="image" />
         <div className="text">Central de Monitoreo - Municipalidad de Huanchaco</div>
       </a>
@@ -35,20 +35,19 @@ function MainHeader() {
           <button onClick={() => toggleMenu("contacto")}>Contacto</button>
           {openMenu === "contacto" && (
             <div className="dropdown-menu">
-              <a href="#">Teléfonos</a>
-              <a href="#">Email</a>
-              <a href="#">Ubicación</a>
+              <a href="#">Teléfono</a>
+              <a href="#">Whatsapp</a>
+              <a href="#">Agendar Cita</a>
             </div>
           )}
         </div>
 
         {/* Botón Asesoramiento */}
         <div className="dropdown">
-          <button onClick={() => toggleMenu("asesoramiento")}>Asesoramiento</button>
+          <button onClick={() => toggleMenu("asesoramiento")}>Acerca De</button>
           {openMenu === "asesoramiento" && (
             <div className="dropdown-menu">
-              <a href="#">Preguntas Frecuentes</a>
-              <a href="#">Guías y Tutoriales</a>
+              
             </div>
           )}
         </div>
