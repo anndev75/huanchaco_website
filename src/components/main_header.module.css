@@ -5,6 +5,8 @@
     --tamaño-logo: 50px;
 }
 .main{
+    position: sticky;
+    z-index: 10;
     display: flex;
     justify-content: center;
     background-image: linear-gradient(to Bottom, var(--color1), var(--color2));  
@@ -55,12 +57,23 @@
     /* Estilo básico del botón */
     display: none;
     margin: auto 15px;
-    background-color: white;
+    background-color: inherit;
+    color: white;
     border: solid 1px;
     border-radius: 4px;
     width: 30px;
     height: 30px;
-    
+    padding: auto;
+}
+.nav_button:hover{
+    background-color: var(--letra-color);
+    color: black;
+    transition: ease-out 0.2s;
+}
+.nav_button:active{
+    box-shadow: 0px 0px 5px white;
+    border: solid 2px black;
+    transition: none;
 }
 
 
@@ -98,16 +111,48 @@
     transition: ease-in 0.05s;
 }
 
-
 /*RESPONSIVE*/
+
 @media (max-width: 800px) {
+    .nav.hidden{
+        visibility: hidden;
+        transform: translateY(-50px);
+        transition: ease-in-out 0.2s;
+    }
     .nav_button{
         display: block;
     }
-    
-    /*terminar boton menú klk*/
+    .nav{
+        visibility: visible ;
+        position: absolute;
+        z-index: -10;
+        flex-direction: column;
+        background-color: var(--color2);
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        transform: translateY(50px);
+        transition: ease-in-out 0.2s;
+        gap: 20px;
+    }
+    .draw_option, .option{  
+        width: 100%;
+    }
+    .nav_sub_nav{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        border-radius: 0;
+        width:100%;
+        text-align: end;
+    }
+}
 
 
-
+@media (min-width: 801px) {
+    .nav {
+        /* Propiedad que quieres aplicar cuando el tamaño de la pantalla sea mayor a 800px */
+        display: flex; /* Ejemplo */
+    }
 }
   

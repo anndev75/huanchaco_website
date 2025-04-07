@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { FaBars } from "react-icons/fa";
 import style from "./main_header.module.css";
 import logo from '../assets/escudo_huanchaco.png';
 
 // Datos
-const noticias = ['Últimas Noticias', '2', '3'];
+const noticias = ['Últimas Noticias', 'Noticias 2', 'Noticias 3'];
 const contacto = ['Correo', 'Whatsapp', 'Llamar'];
-const ver_mas = ['Acerca De', '2'];
+const ver_mas = ['Acerca De', 'Sobre Nosotros'];
 
 // Componente reutilizable
 function Opcion({ items, text, isActive, onClick }) {
@@ -28,14 +29,14 @@ function Opcion({ items, text, isActive, onClick }) {
 }
 
 // Componente de navegación
-function Nav() {
+function Nav({visible}) {
     const [activeOption, setActiveOption] = useState(null);
     const handleOptionClick = (option) => {
         setActiveOption(activeOption === option ? null : option);
     };
     //use the same text in {text}, isActive &&, handleOptionClick().
     return (
-        <nav className={style.nav}>
+        <nav className={`${style.nav} ${visible ? "" : style.hidden}`}>
             <Opcion
                 items={noticias}
                 text="Noticias"
@@ -71,14 +72,14 @@ function Title() {
 
 // Componente principal
 function Main() {
-    const [activeNav, setActiveNav] = useState(true);
+    const [activeNav, setActiveNav] = useState(false);
     return (
         <div className={style.main}>
             <div className={style.maxWidth}>
                 <Title />
-                {activeNav && <Nav />}
+                <Nav visible={activeNav}/>
                 <button onClick={()=>{setActiveNav(!activeNav)}} className={style.nav_button}>
-                    ...
+                    <FaBars size={15}></FaBars>
                 </button>
             </div>
         </div>
