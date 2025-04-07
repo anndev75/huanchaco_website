@@ -1,9 +1,10 @@
-import './content.css'
+import  style from './content.module.css'
+
 
 function content(){
     return (
-        <div className='content'>
-            [contenido]
+        <div className={style.main}>
+            hello
         </div>
     )
 

@@ -1,0 +1,68 @@
+.fondo{
+    height: 100vh;
+    background-image: url(../assets/fondo_header.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.MainHeader {
+    user-select: none;
+    position: absolute;
+    top: 0;
+    background-color:rgba(0, 0, 0, 0.425);
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    height: 100vh;
+}
+.text1,.text2 {
+    display: flex;
+    flex:1;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 30px;
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 2px 5px black; 
+
+}
+
+
+.escudo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    img {
+        height: 250px;
+        width: auto;
+        margin: 15px;
+        transition: 0.1s all ease;
+    }
+    img:hover{
+        cursor: pointer;
+        filter: drop-shadow(0px 0px 5px rgb(243, 243, 243)) ;
+        transform: scale(1.1);
+        transition: 0.4s all ease;
+    }
+}
+@media (max-width:1000px) {
+    .MainHeader{
+        flex-direction: column;
+    }
+    .text1{
+        align-items: end;
+    }
+    .text2{
+        align-items: start;
+    }
+}
+
+@media (max-width: 800px) {
+    .text1, .text2{
+        align-items: center;
+    }
+}

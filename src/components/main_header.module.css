@@ -4,12 +4,14 @@
     --color2: #1354A2;
     --tamaño-logo: 50px;
 }
+
 .main{
     position: sticky;
+    top: 0;
     z-index: 10;
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(to Bottom, var(--color1), var(--color2));  
+    background-image: linear-gradient(to Bottom, var(--color1), var(--color2));
 }
 .maxWidth{
     display: flex;
@@ -42,6 +44,7 @@
     padding: 0 40px;
     gap:40px;
     align-items: center;
+    user-select: none;
     .active{
         text-shadow: 1px 1px 3px black;
         font-weight: bold;
@@ -98,11 +101,14 @@
     position: absolute;
     background-color: var(--color1);
     border-radius: 10px;
+    a{
+        text-decoration: none;
+        border-radius: inherit;
+    }
     
 }
 .option2{
-    padding: 10pX 20px;
-    list-style: none;
+    padding: 10px 20px;
     color: var(--letra-color);
 }
 .option2:hover{

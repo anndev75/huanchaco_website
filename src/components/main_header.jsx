@@ -1,26 +1,40 @@
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import style from "./main_header.module.css";
-import logo from '../assets/escudo_huanchaco.png';
+import logo from '../assets/escudo_huanchaco_500x500.png';
 
 // Datos
-const noticias = ['Últimas Noticias', 'Noticias 2', 'Noticias 3'];
-const contacto = ['Correo', 'Whatsapp', 'Llamar'];
-const ver_mas = ['Acerca De', 'Sobre Nosotros'];
+const noticias = [
+    { label: 'Últimas Noticias', link: '#' },
+    { label: 'Noticias 2', link: '#' },
+    { label: 'Noticias 3', link: '#' },
+];
+const contacto = [
+    { label: 'Correo', link: '#' },
+    { label: 'Whatsapp', link: '#' },
+    { label: 'Llamar', link: '#' },
+];
+const ver_mas = [
+    { label: 'Acerca De', link: '#' },
+    { label: 'Sobre Nosotros', link: '#' },
+];
 
 // Componente reutilizable
 function Opcion({ items, text, isActive, onClick }) {
     return (
-        <div className={style.draw_option}>
+        <div className={style.draw_option} id="_header">
             <button className={`${style.option} ${isActive && style.active}`} onClick={onClick}>
                 {text}
             </button>
             {isActive && (
                 <ul className={style.nav_sub_nav}>
                     {items.map((item, index) => (
-                        <li key={index} className={style.option2}>
-                            {item}
-                        </li>
+                        <a href={item.link}>
+                            <li key={index} className={style.option2}>
+                                {item.label}
+                            </li>
+                        </a>
+                        
                     ))}
                 </ul>
             )}
