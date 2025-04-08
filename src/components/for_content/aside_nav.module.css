@@ -1,0 +1,53 @@
+:root{
+    --letra-color: #fff;
+    --color1: #082971;
+    --color2: #1354A2;
+    --tamaño-logo: 50px;
+}
+.main{
+    grid-area: sidebar; /* from father (grid-area)*/
+    margin: 25vh 0 auto auto;
+    position: sticky;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .styled_box{
+        background-image: linear-gradient(to Left, var(--color1), var(--color2)) ;
+        border-radius: 15px 0 0 15px;
+        padding: 40px 100px 30px 40px;
+    }
+    h1{
+        margin-bottom: 15px;
+        color: rgb(0, 0, 0);
+    }
+    a{
+        list-style: none;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        
+    }
+    li{
+        padding: 7px 0;
+        font-size: 16px;
+        transition: all 0.1s;
+    }
+    li:hover{
+        transform: scale(1.2);
+        color: white;
+        transition: all 0.1s;
+    }
+    li:active{
+        text-shadow: 0 0 5px white;
+        transition: all 0.1s;
+        
+    }
+}
+.styled_box:hover{
+    transform: scale(1.1);
+    transition: all 0.1s;
+    h1{
+        
+        text-shadow: 0 0 6px white;
+    }
+}

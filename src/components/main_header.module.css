@@ -110,6 +110,7 @@
 .option2{
     padding: 10px 20px;
     color: var(--letra-color);
+    list-style: none;
 }
 .option2:hover{
     background-color: var(--color2);
