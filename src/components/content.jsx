@@ -14,7 +14,7 @@ const example = {
 
 
 function Content(){
-    const cantidad = 15;
+    const cantidad = 5;
     const articulos = Array.from({length: cantidad}, ()=> example);
 
     // En cada campo solo incluir el texto, href o src");
@@ -23,25 +23,29 @@ function Content(){
     return (
         <div className={style.main}>
             <div className={style.body}>
-                
+                <div className={style.nav_box}>
                     <Nav_Aside
-                    list = {cantidad}
-                    titulos= {example.title}
+                        list = {cantidad}
+                        titulos= {example.title}
                     />
+                </div>
                 {/* Función provisional para imprimir articulos sin servidor*/}
-                {articulos.map((article, index) => (
-                    <Article
-                        id={`articulo_${index}`}
-                        key={index}
-                        title={article.title}
-                        p1={article.p1}
-                        p2={article.p2}
-                        img1={article.img1}
-                        img2={article.img2}
-                        link={article.link}
-                        structure={['title', 'p1', 'img1', 'p2', 'img2', 'link']}
-                    />
-                ))}
+                <div className={style.articles_box}>
+                    {articulos.map((article, index) => (
+                        <Article
+                            id={`articulo_${index}`}
+                            key={index}
+                            title={article.title}
+                            p1={article.p1}
+                            p2={article.p2}
+                            img1={article.img1}
+                            img2={article.img2}
+                            link={article.link}
+                            structure={['title', 'p1', 'img1', 'p2', 'img2', 'link']}
+                        />
+                    ))}
+                </div>
+                
             </div>
         </div>
     )

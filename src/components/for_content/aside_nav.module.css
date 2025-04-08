@@ -4,19 +4,31 @@
     --color2: #1354A2;
     --tamaño-logo: 50px;
 }
-.main{
-    grid-area: sidebar; /* from father (grid-area)*/
-    margin: 25vh 0 auto auto;
-    position: sticky;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+.aside_button{
+    display: none;
 
-    .styled_box{
-        background-image: linear-gradient(to Left, var(--color1), var(--color2)) ;
-        border-radius: 15px 0 0 15px;
-        padding: 40px 100px 30px 40px;
-    }
+    font-size: 23px;
+    padding: 10px;
+    background-image: linear-gradient(to Left, var(--color1), var(--color2));
+    height: 100px;
+    border: 1px solid transparent;
+    border-radius: 10px 0 0 10px;
+    box-shadow: none;
+
+}
+.aside_button:hover{
+    background-image: linear-gradient(to Right, var(--color1), var(--color2));
+    border: 1px solid black;
+    color: white;
+}
+.aside_button:active{
+    filter: brightness(1.5);
+    border-color: white;
+}
+.text_box{
+    background-image: linear-gradient(to Left, var(--color1), var(--color2));
+    padding: 40px 60px 40px 40px;
+    border-radius: 20px 0 0 20px;
     h1{
         margin-bottom: 15px;
         color: rgb(0, 0, 0);
@@ -39,9 +51,16 @@
     }
     li:active{
         text-shadow: 0 0 5px white;
-        transition: all 0.1s;
+        transition: transform 0.3s ease;
         
     }
+}
+.styled_box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    border-radius: 15px 0 0 15px;
 }
 .styled_box:hover{
     transform: scale(1.1);
@@ -49,5 +68,20 @@
     h1{
         
         text-shadow: 0 0 6px white;
+    }
+}
+
+@media (max-width: 800px) {
+    .styled_box{
+        transform: none !important;
+        .aside_button{
+            display: block;
+        }
+    }
+    .styled_box{
+        translate: 0 0;
+    }
+    .styled_box.collapse{
+        translate: calc(100% - (45px)); /*(Npx)padding + font icon*/
     }
 }

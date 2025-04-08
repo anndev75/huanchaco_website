@@ -1,3 +1,8 @@
+.main{
+    z-index: 3;
+}
+
+
 .fondo{
     height: 100vh;
     background-image: url(../assets/fondo_header.webp);

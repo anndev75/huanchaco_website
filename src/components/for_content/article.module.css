@@ -1,7 +1,6 @@
 .main{
     /*for father grid display*/
     position: relative;
-    grid-column: 1;
     display: grid;
     grid-template-columns: 35% 65%;
     max-width: 900px;
@@ -9,7 +8,8 @@
     box-shadow: 0 1px 3px #000000b6, 0 1px 2px #000000ce;
     padding: 30px;
     margin: auto;
-    text-align: justify;  
+    text-align: justify;
+    z-index: 0;
 
     .title{
         grid-column: span 2;
@@ -50,10 +50,15 @@
         transition: ease-out 0.2s;
     }
 }
-.main::before {
-    content: '';
-    display: block;
-    height: 80px; /* mismo alto que tu navbar */
-    margin-top: -80px;
-    visibility: hidden;
+
+@media (max-width: 800px) {
+    .main{
+        .image2, .paragraph2{
+            grid-column: span 2;
+            margin-bottom: 30px;
+            max-width: 100%;
+        }
+        
+    }
+    
 }

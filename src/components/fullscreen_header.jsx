@@ -7,7 +7,7 @@ import escudo from '../assets/escudo_huanchaco_2560x2560.png'
 
 function fullscreen_header({escudoOnClick}){
     return (
-        <div id="header">
+        <div id="header" className={style.main}>
             <div className={style.fondo}></div>
             <div className={style.MainHeader}>
                 <div className={style.text1}>

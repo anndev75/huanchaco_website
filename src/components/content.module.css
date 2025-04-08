@@ -1,7 +1,7 @@
 .main{
     min-height: 1000px;
     background-color: #e6e6e6;
-    padding: 70px 0px 70px 30px;
+    padding: 30px 0px 70px 30px;
 
 }
 .body{
@@ -10,5 +10,39 @@
     row-gap: 40px;
     grid-template-areas: 
     "content sidebar";
+    z-index: 0;
+}
 
+.articles_box{
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    
+}
+.nav_box{
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: row-reverse;
+    height: fit-content;
+    position: sticky;
+    top: 50vh;
+    translate: 0 -50%;
+    z-index: 2;
+}
+
+@media (max-width: 800px) {
+    .main{
+        padding: 0;
+    }
+    .body{
+        display: flex;
+        flex-direction: column;
+    }
+    .articles_box{
+        margin: 15px;
+    }
+    .nav_box{
+        height: 0;
+    }
 }

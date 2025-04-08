@@ -3,6 +3,9 @@
     margin: 0;
     font-family: 'Noto Sans';
 }
+body{
+    overflow-x: hidden;
+}
 html{
     scroll-padding-top: 80px;
 }
