@@ -33,7 +33,7 @@ function Content(){
                 <div className={style.articles_box}>
                     {articulos.map((article, index) => (
                         <Article
-                            id={`articulo_${index}`}
+                            id={index}
                             key={index}
                             title={article.title}
                             p1={article.p1}

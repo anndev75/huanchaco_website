@@ -4,11 +4,12 @@ import { BsArrowUpRight } from "react-icons/bs";
 function Main({ title, p1, p2, img1, img2, link, structure, id}) {
     
     return (
-        <div className={style.main} id={id}> {/* Este ID es importante para manejar la barra lateral*/}
+        <div className={style.main} id={`articulo_${id}`}> {/* Este ID es importante para manejar la barra lateral*/}
             {structure.map((element, index) => {
+                const num = id + 1;
                 switch (element) {
                     case 'title':
-                        return <h1 key={index} className={style.title}>- {title}</h1>;
+                        return <h1 key={index} className={style.title}>{num}. {title}</h1>;
                     case 'p1':
                         return <p key={index} className={style.paragraph1}>{p1}</p>;
                     case 'p2':
